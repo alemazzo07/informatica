@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore di scritte</title>
+</head>
+<body>
+
+<button onclick="generaScritte()">Genera Scritte</button>
+<div id="output"></div>
+
+<script>
+    function generaScritte() {
+        var outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = ''; // Pulisce il contenuto precedente
+
+        for (var i = 1; i <= 100; i++) {
+            var nuovaScritta = document.createElement('p');
+            nuovaScritta.textContent = 'juve merda ' + i;
+            outputDiv.appendChild(nuovaScritta);
+        }
+    }
+</script>
+
+</body>
+</html>

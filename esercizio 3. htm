@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conto alla Rovescia e Tabellina</title>
+</head>
+<body>
+
+<div id="counter" style="text-align: center; font-size: 24px;"></div>
+
+<script>
+    var contatore = 5;
+
+    function startContoAllaRovescia() {
+        var counterElement = document.getElementById('counter');
+
+        var intervallo = setInterval(function() {
+            counterElement.innerHTML = contatore;
+
+            if (contatore === 0) {
+                clearInterval(intervallo); // Interrompe il conto alla rovescia
+                startStampaTabellina();
+            } else {
+                contatore--;
+            }
+        }, 1000);
+    }
+
+    function startStampaTabellina() {
+        var tabellinaOutput = '<h2>Tabellina:</h2>';
+        for (var i = 1; i <= 10; i++) {
+            tabellinaOutput += i + '<br>';
+        }
+        document.body.innerHTML += tabellinaOutput;
+    }
+
+    startContoAllaRovescia();
+</script>
+
+</body>
+</html>

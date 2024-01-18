@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conto alla Rovescia e Tabellina</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
+  <h1>CONTATORE</h1>
+ 
+      <div id="counter">1</div>
 
-<div id="counter" style="text-align: center; font-size: 24px;"></div>
+    <script>
+        var counter = 1;
 
-<script>
-    var contatore = 5;
+        function startCounter() {
+            var intervalId = setInterval(function() {
+                counter++;
 
-    function startContoAllaRovescia() {
-        var counterElement = document.getElementById('counter');
-
-        var intervallo = setInterval(function() {
-            counterElement.innerHTML = contatore;
-
-            if (contatore === 0) {
-                clearInterval(intervallo); // Interrompe il conto alla rovescia
-                startStampaTabellina();
-            } else {
-                contatore--;
-            }
-        }, 1000);
-    }
-
-    function startStampaTabellina() {
-        var tabellinaOutput = '<h2>Tabellina:</h2>';
-        for (var i = 1; i <= 10; i++) {
-            tabellinaOutput += i + '<br>';
+                if (counter > 5) {
+                    clearInterval(intervalId);
+                    showMultiplicationTable();
+                } else {
+                    document.getElementById("counter").innerHTML = counter;
+                }
+            }, 1000);
         }
-        document.body.innerHTML += tabellinaOutput;
-    }
 
-    startContoAllaRovescia();
-</script>
+        function showMultiplicationTable() {
+            var table = "";
 
+            for (var i = 1; i <= 10; i++) {
+                table += i + "<br>";
+            }
+
+            document.getElementById("counter").innerHTML = table;
+        }
+
+        startCounter();
+    </script>
 </body>
 </html>

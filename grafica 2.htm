@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .square {
+      width: 10px;
+      height: 10px;
+      border: 1px solid #000; /* Bordo di 1px */
+      display: inline-block;
+    }
+  </style>
+  <title>Esercizio Grafica2</title>
+</head>
+<body>
+
+  <label for="numeroDiv">Inserisci il numero di div:</label>
+  <input type="number" id="numeroDiv" min="1" value="1">
+  <button onclick="creaDiv()">Crea Div</button>
+
+  <script>
+    function creaDiv() {
+      var numeroDiv = document.getElementById('numeroDiv').value;
+      var container = document.body;
+
+      // Rimuovi eventuali div esistenti
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
+
+      // Crea i nuovi div usando un ciclo for
+      for (var i = 0; i < numeroDiv; i++) {
+        var div = document.createElement('div');
+        div.className = 'square';
+        div.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16); // Colore casuale
+        container.appendChild(div);
+      }
+    }
+  </script>
+
+</body>
+</html>

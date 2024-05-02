@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Quadrati con Numeri Casuali</title>
+<style>
+  .square {
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+  }
+  .red {
+    background-color: red;
+  }
+  .light-blue {
+    background-color: lightblue;
+  }
+</style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script>
+  // Array per memorizzare i numeri da 0 a 100
+  var numbers = [];
+  for (var i = 0; i <= 100; i++) {
+    numbers.push(i);
+  }
+
+  // Creazione dei quadrati e inserimento dei numeri
+  var container = document.getElementById('container');
+  for (var i = 0; i < 100; i++) {
+    var square = document.createElement('div');
+    square.classList.add('square');
+    square.textContent = numbers[i];
+    if (numbers[i] % 2 === 0) {
+      square.classList.add('red');
+    } else {
+      square.classList.add('light-blue');
+    }
+    container.appendChild(square);
+  }
+</script>
+
+</body>
+</html>

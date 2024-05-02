@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function isPrime(num) {
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return num > 1;
+}
+
+
+let numeriPari = [];
+for (let i = 2; i <= 1000; i += 2) {
+    numeriPari.push(i);
+}
+
+
+let numeriDispari = [];
+for (let i = 1; i <= 1000; i += 2) {
+    numeriDispari.push(i);
+}
+
+
+let numeriPrimi = [];
+for (let i = 2; i <= 1000; i++) {
+    if (isPrime(i)) {
+        numeriPrimi.push(i);
+    }
+}
+
+
+let successiviPrimi = [];
+let primiPari = 0;
+let primiAncoraPrimi = 0;
+for (let i = 0; i < numeriPrimi.length; i++) {
+    let successivo = numeriPrimi[i] + 1;
+    successiviPrimi.push(successivo);
+    if (successivo % 2 === 0) {
+        primiPari++;
+    }
+    if (isPrime(successivo)) {
+        primiAncoraPrimi++;
+    }
+}
+document.write("Numeri pari: " + numeriPari + "<br>");
+document.write("Numeri dispari: " + numeriDispari + "<br>");
+document.write("Numeri primi: " + numeriPrimi + "<br>");
+document.write("Successivi dei numeri primi: " + successiviPrimi + "<br>");
+document.write("Numeri pari tra i successivi dei numeri primi: " + primiPari + "<br>");
+document.write("Numeri ancora primi tra i successivi dei numeri primi: " + primiAncoraPrimi + "<br>");
+
+
+
+</script>
+</body>
+</html>
